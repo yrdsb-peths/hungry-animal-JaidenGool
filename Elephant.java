@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
-    GreenfootImage idle = new GreenfootImage("images/elephant_idle/idle0.png");
+    GreenfootImage[] idle = new GreenfootImage[8];
     
     /**
      * Constructor - code that gets run the first time the instance is created
@@ -17,8 +17,22 @@ public class Elephant extends Actor
     
     public Elephant()
     {
-        setImage(idle);
+        for(int i = 0; i < 8; i++)
+        {
+            idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+        }
     }
+    
+    /**
+     * Animate the elehant
+     */
+    int imageIndex = 0;
+    public void animateElephant()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
+    
     public void act()
     {
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
@@ -32,6 +46,9 @@ public class Elephant extends Actor
         
         // Remove apples if touching Elephant eats it
         eat();
+        
+        //Animate elephant
+        animateElephant();
     }
     
     //Eats the apple and spawns a new apple
