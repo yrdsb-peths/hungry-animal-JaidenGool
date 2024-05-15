@@ -70,12 +70,12 @@ public class Elephant extends Actor
     {
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {
-            move(-1);
+            move(-3);
             facing = "left";
         }
         else if(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d"))
         {
-            move(1);
+            move(3);
             facing = "right";
         }
         
@@ -96,6 +96,7 @@ public class Elephant extends Actor
             world.createApple();
             world.increaseScore();
             elephantSound.play();
+            world.increaseDifficulty();
         }
        
     }
