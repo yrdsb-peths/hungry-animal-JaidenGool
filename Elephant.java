@@ -68,6 +68,8 @@ public class Elephant extends Actor
     
     public void act()
     {
+        elephantSound.setVolume(50);
+
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {
             move(-3);
@@ -100,4 +102,5 @@ public class Elephant extends Actor
         }
        
     }
+    
 }

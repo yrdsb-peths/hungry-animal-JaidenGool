@@ -64,4 +64,5 @@ public class MyWorld extends World
         int y = 25;
         addObject(apple, x, 25);
     }
+    
 }
