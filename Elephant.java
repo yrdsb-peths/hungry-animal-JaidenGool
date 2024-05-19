@@ -11,6 +11,7 @@ public class Elephant extends Actor
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
+    public static int volume = 50;
 
     // Direction that the elephant is facing
     String facing = "right";
@@ -68,7 +69,7 @@ public class Elephant extends Actor
     
     public void act()
     {
-        elephantSound.setVolume(50);
+        elephantSound.setVolume(volume);
 
         if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a"))
         {

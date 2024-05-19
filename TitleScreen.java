@@ -13,7 +13,6 @@ public class TitleScreen extends World
     
     //Instructions
     Label spaceToStart = new Label("Press space to start", 35);
-    Label volumeLabel = new Label("Press \u2191 and \u2193 to adjust volume", 35);
     Label movementLabel = new Label("Press \u2190 and \u2192 to move", 35);
     /**
      * Constructor for objects of class TitleScreen.
@@ -26,7 +25,6 @@ public class TitleScreen extends World
         
         addObject(titleLabel, getWidth()/2, 180);
         addObject(spaceToStart, getWidth()/2, getHeight()/2 + 30);
-        addObject(volumeLabel, getWidth()/2, getHeight()/2 + 110);
         addObject(movementLabel, getWidth()/2, getHeight()/2 + 70);
         
         Elephant titleElephant = new Elephant();

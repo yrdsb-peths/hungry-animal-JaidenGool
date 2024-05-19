@@ -25,12 +25,12 @@ public class MyWorld extends World
         addObject(elephant, 300, 250);
         
         //Create a label
-        scoreLabel = new Label(0, 50);
-        addObject(scoreLabel, 25, 30);
+        scoreLabel = new Label("Score: 0", 45);
+        addObject(scoreLabel, 90, 30);
         
         //Difficulty label
-        diffLabel = new Label((int)diffScore, 50);
-        addObject(diffLabel, 560, 30);
+        diffLabel = new Label("Level: " + (int)diffScore, 45);
+        addObject(diffLabel, 510, 30);
         
         createApple();
         
@@ -48,13 +48,13 @@ public class MyWorld extends World
     public void increaseScore()
     {
         score++;
-        scoreLabel.setValue(score);
+        scoreLabel.setValue("Score: " + score);
     }
     
     public void increaseDifficulty()
     {
         diffScore += 0.1;
-        diffLabel.setValue((int)diffScore);
+        diffLabel.setValue("Level: " + (int)diffScore);
     }
     
     public void createApple()
