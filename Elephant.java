@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
+    public boolean gameOverCheck = false;
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
@@ -40,6 +41,7 @@ public class Elephant extends Actor
                 
         //Set Initial Elephant image
         setImage(idleRight[0]);
+        this.gameOverCheck = gameOverCheck;
     }
     
     /**
@@ -87,22 +89,25 @@ public class Elephant extends Actor
         
         //Animate elephant
         animateElephant();
+        this.gameOverCheck = MyWorld.gameOverCheck;
     }
     
     //Eats the apple and spawns a new apple
     public void eat()
     {
-        if(isTouching(Apple.class))
+        if(gameOverCheck == false)
         {
-            removeTouching(Apple.class);
-            MyWorld world = (MyWorld) getWorld();
-            world.createApple();
-            world.createFries();
-            world.increaseScore();
-            elephantSound.play();
-            world.increaseDifficulty();
+            if(isTouching(Apple.class))
+            {
+                removeTouching(Apple.class);
+                MyWorld world = (MyWorld) getWorld();
+                world.createApple();
+                world.createFries();
+                world.increaseScore();
+                elephantSound.play();
+                world.increaseDifficulty();
+            }
         }
-       
     }
     
 }

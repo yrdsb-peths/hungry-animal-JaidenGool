@@ -11,6 +11,7 @@ public class MyWorld extends World
     public int score = 0;
     // Difficulty score (level)
     public static double diffScore = 1;
+    public static boolean gameOverCheck = false;
     Label scoreLabel;
     Label diffLabel;
     /**
@@ -36,6 +37,7 @@ public class MyWorld extends World
         createApple();
         
         diffScore = 1;
+        gameOverCheck = false;
     }
     
     //Game over - called when game ends and draw game over
@@ -43,6 +45,7 @@ public class MyWorld extends World
     {
         Label gameOverLabel = new Label("Game over", 100);
         addObject(gameOverLabel, 300, 200);
+        gameOverCheck = true;
     }
     
     //Increase score

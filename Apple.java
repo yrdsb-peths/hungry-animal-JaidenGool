@@ -8,22 +8,29 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Apple extends Actor
 {
-    
+    public boolean gameOverCheck;
+    public Apple()
+    {
+        this.gameOverCheck = gameOverCheck;
+    }
     /**
      * Act - do whatever the Apple wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        double diffScore = MyWorld.diffScore;
-
-        setLocation(getX(), getY() +  (int) diffScore);
-        
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
+        if(gameOverCheck == false)
         {
-            world.gameOver();
-            world.removeObject(this);
+            double diffScore = MyWorld.diffScore;
+
+            setLocation(getX(), getY() +  (int) diffScore);
+            
+            MyWorld world = (MyWorld) getWorld();
+            if(getY() >= world.getHeight())
+            {
+                world.gameOver();
+                world.removeObject(this);
+            }
         }
     }
 }
