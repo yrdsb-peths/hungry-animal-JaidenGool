@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     public int score = 0;
+    // Difficulty score (level)
     public static double diffScore = 1;
     Label scoreLabel;
     Label diffLabel;
@@ -63,6 +64,17 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(600);
         int y = 25;
         addObject(apple, x, 25);
+    }
+    
+    public void createFries()
+    {
+        if(score % 4 == 0)
+        {
+            Fries fries = new Fries();
+            int x = Greenfoot.getRandomNumber(600);
+            int y = 25;
+            addObject(fries, x, y);
+        }
     }
     
 }
